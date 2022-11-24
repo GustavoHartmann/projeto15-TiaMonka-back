@@ -12,5 +12,5 @@ export const signUpSchema = joi.object({
     .options({
       messages: { "any.only": "{{#label}} does not match with password" },
     }),
-  address: joi.string.required(),
+  address: joi.string().required(),
 });

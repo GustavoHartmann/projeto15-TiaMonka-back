@@ -4,6 +4,6 @@ import { signUpValidation } from "../middlewares/signUp.middleware.js";
 
 const router = Router();
 
-router.post("sign-up", signUpValidation, signUp);
+router.post("/sign-up", signUpValidation, signUp);
 
 export default router;
