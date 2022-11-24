@@ -12,5 +12,4 @@ try {
 }
 
 const db = mongoClient.db("tiaMonkaDB");
-
-export default db;
+export const collectionUsers = db.collection("users");
