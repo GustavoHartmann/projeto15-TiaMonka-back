@@ -12,5 +12,7 @@ try {
 }
 
 const db = mongoClient.db("tiaMonkaDB");
+
 export const collectionUsers = db.collection("users");
-export const fixedProducts = db.collection("fixedProducts");
+export const fixedProductsCollection = db.collection("fixedProducts");
+export const productsCategoriesCollection = db.collection("productsCategories");
