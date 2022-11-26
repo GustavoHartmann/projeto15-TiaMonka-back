@@ -3,6 +3,6 @@ import getProductsByCategory from "../controllers/getProductsByCategory.js";
 
 const router = Router();
 
-router.get("/products/:category", getProductsByCategory);
+router.get("/category/:category", getProductsByCategory);
 
 export default router;

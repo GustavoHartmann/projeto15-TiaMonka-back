@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import signUpRoute from "./routes/signUp.route.js";
 import mainRoute from "./routes/main.route.js";
-import categoryRoute from "./routes/productsByCategory.route.js";
+import categoryRoute from "./routes/Category.route.js";
 import singleProductRoute from "./routes/singleProduct.route.js";
 
 dotenv.config();
