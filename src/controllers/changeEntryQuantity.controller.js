@@ -4,8 +4,8 @@ import { cartsCollection } from "../database/db.js";
 const changeEntryQuantity = async (req, res) => {
   const changeType = req.body.changeType;
   const entryId = new ObjectId(req.body.entryId);
-  console.log(changeType);
-  console.log(entryId);
+  const previousQuantity = req.body.previousQuantity;
+
   let sumFactor;
 
   if (changeType === "increase") {
@@ -15,16 +15,15 @@ const changeEntryQuantity = async (req, res) => {
   }
 
   try {
-    const selectedEntry = await cartsCollection.findOne({ _id: entryId });
-
-    if (Number(selectedEntry.quantity) + sumFactor === 0) {
+    if (Number(previousQuantity) + sumFactor === 0) {
       await cartsCollection.deleteOne({ _id: entryId });
     }
 
     await cartsCollection.updateOne(
       { _id: entryId },
-      { $set: { quantity: Number(selectedEntry.quantity) + sumFactor } }
+      { $set: { quantity: Number(previousQuantity) + sumFactor } }
     );
+
     res.sendStatus(201);
     return;
   } catch (error) {
